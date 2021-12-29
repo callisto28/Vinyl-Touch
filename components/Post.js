@@ -19,7 +19,7 @@ const Post = ({ post }) => {
                 </picture>
             </div>
             <h1 className="transition duration-400 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
-                <Link href={`/actu/${post.slug}`}>
+                <Link href={`/post/${post.slug}`}>
                     {post.title}
                 </Link>
             </h1>

@@ -16,7 +16,8 @@ const Category = (categories) => {
                 {categories.post.map(category => (
                     <Link href={`/category/${category.node.slug}`} key={category.slug} passHref>
                         <span className="md:float-center mt-2 flex text-gray-600 ml-4 font-semibold cursor-pointer">
-                            - {category.node.title}
+                            {/* - {category.node.title} */}
+                            - {(category.node.title === ' La French Touch') ? (<a href='../pages/frenchtouch'>La French Touch</a>) : (category.node.title)}
                         </span>
                     </Link>
                 ))}

@@ -14,9 +14,9 @@ const Favoris = (recentSold) => {
                 {recentSold.post.map(category => (
 
                     <>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col text-center text-lg">
                             <Link href={`/category/${(category.slug)}`} key={category.slug} passHref>
-                                <span className="md:float-center mt-2 flex flex-col text-gray-600 ml-4 font-semibold cursor-pointer">
+                                <span className="md:float-center mt-2 flex flex-col text-gray-600  font-semibold text-center text-lg">
                                     {category.title}
                                 </span>
                             </Link>

@@ -11,8 +11,8 @@ const Widget = (recentPosts) => {
         <div className="bg-white shadow-lg rounded-lg p-6 pb-10 mb-8">
             <h3 className="text-xl mb-8 font-semibold border-b pb-4">{'Recent Posts'}</h3>
 
-            {recentPosts.post.map(post => (
-                <>
+            {recentPosts.post.map((post, index) => (
+                <div key={index}>
                     <a className="flex flex-col items-center cursor-pointer">
 
 
@@ -26,7 +26,7 @@ const Widget = (recentPosts) => {
                         </div>
                     </a>
 
-                </>
+                </div>
 
             ))}
         </div>

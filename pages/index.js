@@ -20,16 +20,16 @@ export default function Home({ posts, categories, recentPosts, recentSold }) {
       </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
-          {posts.map((post) => <Post key={post.title} post={post.node} />)}
+          {posts.map((post, index) => <Post key={index} post={post.node} />)}
         </div>
         <div className="lg:col-span-4 col-span-1">
           <div className="lg:sticky relative top-8">
 
-            <Category key={categories.title} post={categories} />
+            <Category post={categories} />
 
-            <Widget key={recentPosts.title} post={recentPosts} />
+            <Widget post={recentPosts} />
 
-            <Favoris key={recentSold.author} post={recentSold} />
+            <Favoris post={recentSold} />
           </div>
 
 

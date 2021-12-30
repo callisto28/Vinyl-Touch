@@ -11,9 +11,9 @@ const Favoris = (recentSold) => {
             <h3 className="text-xl mb-8 font-semibold border-b pb-4">Bon Plans <span className='text-sm' >Dernières minutes</span></h3>
 
             <div className="container block lg:flex-col text-center justify-around mb-8 w-full">
-                {recentSold.post.map(category => (
+                {recentSold.post.map((category, index) => (
 
-                    <>
+                    <div key={index}>
                         <div className="flex flex-col text-center text-lg">
                             <Link href={`/category/${(category.slug)}`} key={category.slug} passHref>
                                 <span className="md:float-center mt-2 flex flex-col text-gray-600  font-semibold text-center text-lg">
@@ -43,7 +43,7 @@ const Favoris = (recentSold) => {
                         </div>
 
 
-                    </>
+                    </div>
 
                 ))}
             </div>

@@ -26,7 +26,7 @@ const bonplan = ({ data, data2 }) => {
             <div className='grid grid-flow-row gap-12 m-14'>
                 <h3 className='font-bold text-l text-white'>Chaque semaine je mettrais à l&apos;honneur une chaîne avec ses 3 dernières vidéos</h3>
                 <ul className="grid grid-cols-3 gap-8 text-center mx-auto">
-                    {data.items.map((item) => {
+                    {data.items.map((item, index) => {
                         const { id, snippet = {} } = item;
                         const { videoId } = id;
                         const { title, description, thumbnails = {}, publishedAt, channelTitle } = snippet;
@@ -34,7 +34,7 @@ const bonplan = ({ data, data2 }) => {
 
 
                         return (
-                            <div key={id} className="bg-white shadow-md border border-red-400 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 grid content-evenly">
+                            <div key={index} className="bg-white shadow-md border border-red-400 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 grid content-evenly">
                                 <a href="#" >
                                     <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{channelTitle}</h5>
                                 </a>
@@ -67,14 +67,14 @@ const bonplan = ({ data, data2 }) => {
             <div className='grid grid-flow-row gap-12 m-14'>
                 <h3 className='font-bold text-l text-white'>Voici une liste des Youtubeurs Français parlant de vinyls</h3>
                 <ul className="grid grid-cols-3 gap-8 text-center mx-auto">
-                    {data2.items.map((item2) => {
+                    {data2.items.map((item2, index2) => {
                         const { id, snippet = {} } = item2;
                         const { title, description, thumbnails = {}, publishedAt, videoOwnerChannelTitle } = snippet;
                         const { medium = {} } = thumbnails;
 
 
                         return (
-                            <div key={id} className="bg-white shadow-md border border-red-400 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 grid content-evenly">
+                            <div key={index2} className="bg-white shadow-md border border-red-400 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 grid content-evenly">
                                 <a href="#" >
                                     <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{videoOwnerChannelTitle}</h5>
                                 </a>

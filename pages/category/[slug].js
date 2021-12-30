@@ -60,41 +60,41 @@ const Category = ({ category }) => {
         {category[0].title} </h1>
       <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
 
-        <p className="text-center text-lg">
 
-          {(category[0].collection).map(collect => (
-            <div key={collect} className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
 
-              <h1 className="transition duration-400 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
-                {collect.title} </h1>
-              <p className="text-center text-lg">
-                {collect.createdAt}
-              </p>
-              <p className="text-center text-lg">
-                {collect.description}
-              </p>
-              <p className="text-center text-lg">
-                {collect.content.text}
-              </p>
-            </div>
-          ))}
-          {(category[0].posts).map(post => (
-            <div key={post} className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
+        {(category[0].collection).map((collect, index) => (
+          <div key={index} className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
 
-              <h1 className="transition duration-400 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
-                {post.title} </h1>
-              <p className="text-center text-lg">
-                {post.createdAt}
-              </p>
-              <p className="text-center text-lg">
-                {post.description}
-              </p>
-              <p className="text-center text-lg">
-                {post.content.text}
-              </p>
-            </div>
-          ))}
-        </p>
+            <h1 className="transition duration-400 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
+              {collect.title} </h1>
+            <p className="text-center text-lg">
+              {collect.createdAt}
+            </p>
+            <p className="text-center text-lg">
+              {collect.description}
+            </p>
+            <p className="text-center text-lg">
+              {collect.content.text}
+            </p>
+          </div>
+        ))}
+        {(category[0].posts).map((post, index) => (
+          <div key={index} className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
+
+            <h1 className="transition duration-400 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
+              {post.title} </h1>
+            <p className="text-center text-lg">
+              {post.createdAt}
+            </p>
+            <p className="text-center text-lg">
+              {post.description}
+            </p>
+            <p className="text-center text-lg">
+              {post.content.text}
+            </p>
+          </div>
+        ))}
+
       </div>
       <div className="text-center">
         <Link href={`/`} passHref>

@@ -14,6 +14,7 @@ const Post = ({ post }) => {
                         layout="responsive"
                         width={800}
                         height={500}
+                        priority={true}
 
                     />
                 </picture>

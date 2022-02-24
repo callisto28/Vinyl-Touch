@@ -1,6 +1,7 @@
 import React from 'react';
 import { request, gql } from 'graphql-request';
 import Link from 'next/link';
+import moment from 'moment';
 
 
 export const getServerSideProps = async (pageContext) => {
@@ -21,7 +22,7 @@ export const getServerSideProps = async (pageContext) => {
                 description
                 createdAt
                 content {
-                  text
+                  html
                 }
               }
               collection {
@@ -31,7 +32,7 @@ export const getServerSideProps = async (pageContext) => {
                 description
                 createdAt
                 content {
-                  text
+                  html
                 }
               }
           }
@@ -59,22 +60,19 @@ const Category = ({ category }) => {
       <h1 className="transition duration-400 text-center mb-8 hover:text-pink-600 text-3xl font-semibold">
         {category[0].title} </h1>
       <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
-
-
-
         {(category[0].collection).map((collect, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
 
             <h1 className="transition duration-400 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
               {collect.title} </h1>
-            <p className="text-center text-lg">
-              {collect.createdAt}
-            </p>
+            <span className="text-center text-lg">{moment(collect.createdAt).format('MMM DD, YYYY')}
+
+            </span>
             <p className="text-center text-lg">
               {collect.description}
             </p>
             <p className="text-center text-lg">
-              {collect.content.text}
+              {collect.content.html}
             </p>
           </div>
         ))}
@@ -87,10 +85,10 @@ const Category = ({ category }) => {
               {post.createdAt}
             </p>
             <p className="text-center text-lg">
-              {post.description}
+              {post.description.split('\n')}
             </p>
-            <p className="text-center text-lg">
-              {post.content.text}
+            <p className="text-center text-lg" dangerouslySetInnerHTML={{ __html: post.content.html }}>
+
             </p>
           </div>
         ))}

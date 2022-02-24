@@ -18,7 +18,7 @@ export const getServerSideProps = async (pageContext) => {
             description
             createdAt
             content {
-                text
+                html
             }
             photo {
                 url
@@ -27,11 +27,9 @@ export const getServerSideProps = async (pageContext) => {
           }
         }`;
 
-
     const variables = {
         pageSlug
     };
-
     const data = await request(url, query, variables);
     const post = data.posts;
     return {
@@ -39,7 +37,6 @@ export const getServerSideProps = async (pageContext) => {
             post
         }
     }
-
 };
 
 const Post = ({ post }) => {
@@ -64,12 +61,12 @@ const Post = ({ post }) => {
             <p className="text-center text-gray-600 text-sm">
                 {post[0].createdAt}
             </p>
-            <div className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8">
-                {post[0].description}
+            <div className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8" >
+                {post[0].description.split('\n')}
 
             </div>
-            <div className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8">
-                {post[0].content.text}
+            <div className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8" dangerouslySetInnerHTML={{ __html: post[0].content.html }}>
+                {/* {post[0].content.html.replace('\n', '</n>')} */}
 
             </div>
             <div className="text-center">
